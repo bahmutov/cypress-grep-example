@@ -7,12 +7,9 @@
 // check this file using TypeScript if available
 // @ts-check
 
-describe('TodoMVC - React', function () {
-  // setup these constants to match what TodoMVC does
-  let TODO_ITEM_ONE = 'buy some cheese'
-  let TODO_ITEM_TWO = 'feed the cat'
-  let TODO_ITEM_THREE = 'book a doctors appointment'
+import { TODO_ITEM_ONE, TODO_ITEM_TWO, TODO_ITEM_THREE } from './utils'
 
+describe('TodoMVC - React', function () {
   beforeEach(function () {
     // By default Cypress will automatically
     // clear the Local Storage prior to each
@@ -41,7 +38,7 @@ describe('TodoMVC - React', function () {
   })
 
   // a very simple example helpful during presentations
-  it('adds 2 todos', function () {
+  it('adds 2 todos @smoke', function () {
     cy.get('.new-todo').type('learn testing{enter}').type('be cool{enter}')
 
     cy.get('.todo-list li').should('have.length', 2)
@@ -299,7 +296,7 @@ describe('TodoMVC - React', function () {
       cy.get('@secondTodo').find('label').should('not.be.visible')
     })
 
-    it('should save edits on blur', function () {
+    it('should save edits on blur @smoke', function () {
       cy.get('@todos').eq(1).as('secondTodo').find('label').dblclick()
 
       cy.get('@secondTodo')
@@ -374,7 +371,7 @@ describe('TodoMVC - React', function () {
       cy.get('.clear-completed').contains('Clear completed')
     })
 
-    it('should remove completed items when clicked', function () {
+    it('should remove completed items when clicked @smoke', function () {
       cy.get('@todos').eq(1).find('.toggle').check()
 
       cy.get('.clear-completed').click()
@@ -394,7 +391,7 @@ describe('TodoMVC - React', function () {
   })
 
   context('Persistence', function () {
-    it('should persist its data', function () {
+    it('should persist its data @smoke', function () {
       // mimicking TodoMVC tests
       // by writing out this function
       function testState() {
@@ -462,7 +459,7 @@ describe('TodoMVC - React', function () {
       cy.get('@todos').should('have.length', 1)
     })
 
-    it('should allow me to display all items', function () {
+    it('should allow me to display all items @smoke', function () {
       cy.get('@todos').eq(1).find('.toggle').check()
 
       cy.get('.filters').contains('Active').click()

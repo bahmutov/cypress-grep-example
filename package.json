@@ -6,10 +6,9 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "dev": "run-p --race start:ci cypress:open",
+    "dev": "start-test 8888 cypress:open",
     "start": "http-server -p 8888 -c-1",
-    "start:ci": "http-server -p 8888 -c-1 --silent",
-    "dev": "start-test 8888 cypress:open"
+    "start:ci": "http-server -p 8888 -c-1 --silent"
   },
   "dependencies": {
     "director": "1.2.8",
@@ -20,6 +19,7 @@
   },
   "devDependencies": {
     "cypress": "7.2.0",
+    "cypress-grep": "1.0.1",
     "prettier": "2.2.1",
     "start-server-and-test": "1.12.1"
   }
