@@ -12,3 +12,15 @@ jobs:
         with:
           # just perform install
           runTests: false
+
+      # run just the smoke tests with "@smoke" string in their names
+      - name: Smoke tests 💨
+        uses: cypress-io/github-action@v2
+        with:
+          # we have already installed all dependencies above
+          install: false
+          start: npm start
+          # quote the url to be safe against YML parsing surprises
+          wait-on: 'http://localhost:8888'
+          # pass the grep string
+          env: grep=@smoke
