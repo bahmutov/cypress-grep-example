@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "cypress-grep-example",
+  "version": "0.0.0-development",
+  "description": "Example application with grep tags inside the test names",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "dev": "run-p --race start:ci cypress:open",
+    "start": "http-server -p 8888 -c-1",
+    "start:ci": "http-server -p 8888 -c-1 --silent"
+  },
+  "dependencies": {
+    "director": "1.2.8",
+    "http-server": "0.12.3",
+    "react": "0.13.3",
+    "todomvc-app-css": "2.3.0",
+    "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
+  },
+  "devDependencies": {
+    "cypress": "7.2.0",
+    "prettier": "2.2.1",
+    "start-server-and-test": "1.12.1"
+  }
+}
