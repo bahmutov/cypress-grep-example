@@ -24,3 +24,34 @@ jobs:
           wait-on: 'http://localhost:8888'
           # pass the grep string
           env: grep=@smoke
+          # record the results on the Cypress Dashboard
+          # https://on.cypress.io/dashboard-introduction
+          record: true
+          # tag the smoke tests for quick find
+          tag: smoke
+        # environment variables while running Cypress
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # if smoke tests passed, run all the tests
+      - name: E2E tests 💨
+        uses: cypress-io/github-action@v2
+        with:
+          # we have already installed all dependencies above
+          install: false
+          start: npm start
+          # quote the url to be safe against YML parsing surprises
+          wait-on: 'http://localhost:8888'
+          # record the results on the Cypress Dashboard
+          # https://on.cypress.io/dashboard-introduction
+          record: true
+          tag: all
+        # environment variables while running Cypress
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

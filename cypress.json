@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:8888",
   "fixturesFolder": false,
-  "testFiles": "**/*spec.js"
+  "testFiles": "**/*spec.js",
+  "projectId": "4agux9"
 }
