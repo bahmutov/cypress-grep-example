@@ -7,9 +7,30 @@
 
 See [cypress-grep](https://github.com/bahmutov/cypress-grep)
 
-## Running some tests
+## Running smoke tests
 
-Some tests in this repo in the [cypress/integration](./cypress/integration) folder have the string `@smoke` in their names (the symbol `@` has no meaning, any substring is a valid grep string. I just like to use such "tags" to stand out a little bit). To run just the tests with substring `@smoke` you can do:
+Some tests in this repo in the [cypress/integration](./cypress/integration) folder have the string `@smoke` in their names (the symbol `@` has no meaning, any substring is a valid grep string. I just like to use such "tags" to stand out a little bit) or by adding the `tag: ['@smoke']` to their config object.
+
+```js
+// cypress/integration/routing-spec.js
+describe('TodoMVC - React', function () {
+  context('Routing', function () {
+    // other tests
+
+    // specify tags right in the test name
+    it('should allow me to display all items @smoke', function () {
+      ...
+    })
+
+    // ALTERNATIVE: specify tags in the test configuration object
+    it('should respect the back button', { tags: ['@smoke'] }, function () {
+      ...
+    })
+  })
+})
+```
+
+To run just the tests with substring `@smoke` you can do:
 
 ```text
 $ npx cypress run --env grep=@smoke

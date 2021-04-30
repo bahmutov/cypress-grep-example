@@ -58,7 +58,8 @@ describe('TodoMVC - React', function () {
       cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
     })
 
-    it('should respect the back button', function () {
+    // @ts-ignore
+    it('should respect the back button', { tags: ['@smoke'] }, function () {
       cy.get('@todos').eq(1).find('.toggle').check()
 
       cy.get('.filters').contains('Active').click()
