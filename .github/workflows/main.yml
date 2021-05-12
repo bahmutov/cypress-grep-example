@@ -13,7 +13,7 @@ jobs:
       - name: All E2E tests 🧪
         uses: cypress-io/github-action@v2
         with:
-          start: npm start
+          start: npm run start:ci
           # quote the url to be safe against YML parsing surprises
           wait-on: 'http://localhost:8888'
           # record the results on the Cypress Dashboard
