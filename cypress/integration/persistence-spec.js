@@ -38,7 +38,7 @@ describe('TodoMVC - React', function () {
   })
 
   context('Persistence', function () {
-    it('should persist its data @smoke', function () {
+    it('should persist its data', { tags: '@smoke' }, function () {
       // mimicking TodoMVC tests
       // by writing out this function
       function testState() {

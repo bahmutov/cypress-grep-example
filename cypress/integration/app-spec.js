@@ -38,7 +38,7 @@ describe('TodoMVC - React', function () {
   })
 
   // a very simple example helpful during presentations
-  it('adds 2 todos @smoke', function () {
+  it('adds 2 todos', { tags: '@smoke' }, function () {
     cy.get('.new-todo').type('learn testing{enter}').type('be cool{enter}')
 
     cy.get('.todo-list li').should('have.length', 2)
@@ -296,7 +296,7 @@ describe('TodoMVC - React', function () {
       cy.get('@secondTodo').find('label').should('not.be.visible')
     })
 
-    it('should save edits on blur @smoke', function () {
+    it('should save edits on blur', { tags: '@smoke' }, function () {
       cy.get('@todos').eq(1).as('secondTodo').find('label').dblclick()
 
       cy.get('@secondTodo')
@@ -362,15 +362,19 @@ describe('TodoMVC - React', function () {
       cy.get('.clear-completed').contains('Clear completed')
     })
 
-    it('should remove completed items when clicked @smoke', function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
+    it(
+      'should remove completed items when clicked',
+      { tags: '@smoke' },
+      function () {
+        cy.get('@todos').eq(1).find('.toggle').check()
 
-      cy.get('.clear-completed').click()
-      cy.get('@todos').should('have.length', 2)
-      cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
+        cy.get('.clear-completed').click()
+        cy.get('@todos').should('have.length', 2)
+        cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
 
-      cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
-    })
+        cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
+      },
+    )
 
     it('should be hidden when there are no items that are completed', function () {
       cy.get('@todos').eq(1).find('.toggle').check()

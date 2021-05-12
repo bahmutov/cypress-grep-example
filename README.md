@@ -7,9 +7,33 @@
 
 See [cypress-grep](https://github.com/bahmutov/cypress-grep)
 
-## Running smoke tests
+## Install and start the app
 
-Some tests in this repo in the [cypress/integration](./cypress/integration) folder have the string `@smoke` in their names (the symbol `@` has no meaning, any substring is a valid grep string. I just like to use such "tags" to stand out a little bit) or by adding the `tag: ['@smoke']` to their config object.
+Before filtering by test title and tag, we need to install dependencies and start the application
+
+```shell
+$ npm install
+$ npm start
+```
+
+## Running tests by title
+
+We can pick some tests to run using part of their title.
+
+```shell
+$ npx cypress run --env grep="the current number of todo items"
+```
+
+Runs just a single test found in [cypress/integration/counter-spec.js](./cypress/integration/counter-spec.js). The rest of the tests are still loaded, but are marked pending. To really target specific tests, add `--spec ...` argument
+
+```shell
+$ npx cypress run --env grep="the current number of todo items" \
+  --spec cypress/integration/counter-spec.js
+```
+
+## Running tests by tag
+
+Some tests in this repo in the [cypress/integration](./cypress/integration) folder have the tag `@smoke` in their config object. The symbol `@` has no meaning, I just like to use this prefix to make tags searchable.
 
 ```js
 // cypress/integration/routing-spec.js
@@ -17,12 +41,11 @@ describe('TodoMVC - React', function () {
   context('Routing', function () {
     // other tests
 
-    // specify tags right in the test name
-    it('should allow me to display all items @smoke', function () {
+    it('should allow me to display all items', { tags: '@smoke' }, function () {
       ...
     })
 
-    // ALTERNATIVE: specify tags in the test configuration object
+    // if you have more than one tag, use an array
     it('should respect the back button', { tags: ['@smoke'] }, function () {
       ...
     })
@@ -33,8 +56,8 @@ describe('TodoMVC - React', function () {
 To run just the tests with substring `@smoke` you can do:
 
 ```text
-$ npx cypress run --env grep=@smoke
-cypress-grep: only running tests with "@smoke" in their names
+$ npx cypress run --env grepTag=@smoke
+cypress-grep: filtering using tag "@smoke"
 ```
 
 See the [.github/workflows/main.yml](./.github/workflows/main.yml) that first runs the smoke tests and then all the tests during the CI run. You can see the runs in the [repo's Actions tab](https://github.com/bahmutov/cypress-grep-example/actions).

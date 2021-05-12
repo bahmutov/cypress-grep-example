@@ -38,6 +38,12 @@ describe('TodoMVC - React', function () {
   })
 
   context('Counter', function () {
+    it('should not exist without items', function () {
+      cy.get('.todo-count').should('not.exist')
+      cy.createTodo(TODO_ITEM_ONE)
+      cy.get('.todo-count').should('be.visible')
+    })
+
     it('should display the current number of todo items', function () {
       cy.createTodo(TODO_ITEM_ONE)
       cy.get('.todo-count').contains('1 item left')
