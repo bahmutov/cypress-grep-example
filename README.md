@@ -7,6 +7,8 @@
 
 See [cypress-grep](https://github.com/bahmutov/cypress-grep)
 
+Watch the video [intro to cypress-grep](https://www.youtube.com/watch?v=HS-Px-Sghd8)
+
 ## Install and start the app
 
 Before filtering by test title and tag, we need to install dependencies and start the application
