@@ -20,7 +20,7 @@ jobs:
           # record the results on the Cypress Dashboard
           # https://on.cypress.io/dashboard-introduction
           record: true
-          # tag the smoke tests in the Dashboard for quick find
+          group: '1 - smoke tests'
           tag: smoke
         # environment variables while running Cypress
         env:
@@ -41,7 +41,7 @@ jobs:
           # record the results on the Cypress Dashboard
           # https://on.cypress.io/dashboard-introduction
           record: true
-          tag: all
+          group: '2 - all tests'
         # environment variables while running Cypress
         env:
           # pass the Dashboard record key as an environment variable

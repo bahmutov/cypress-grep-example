@@ -19,7 +19,10 @@ jobs:
           # record the results on the Cypress Dashboard
           # https://on.cypress.io/dashboard-introduction
           record: true
+          # tags and groups make it simple to find this run
+          # on the Dashboard
           tag: main
+          group: main
         # environment variables while running Cypress
         env:
           # pass the Dashboard record key as an environment variable
