@@ -1,0 +1,50 @@
+name: pr
+on: [pull_request]
+jobs:
+  pr-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
+      # run tests tagged "@smoke"
+      # https://github.com/bahmutov/cypress-grep
+      - name: Smoke tests 💨
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
+          # quote the url to be safe against YML parsing surprises
+          wait-on: 'http://localhost:8888'
+          # run only the tests tagged @smoke
+          env: grepTags=@smoke
+          # record the results on the Cypress Dashboard
+          # https://on.cypress.io/dashboard-introduction
+          record: true
+          # tag the smoke tests in the Dashboard for quick find
+          tag: smoke
+        # environment variables while running Cypress
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # if smoke tests passed, run all the tests
+      - name: All E2E tests 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          # we have already installed all dependencies above
+          install: false
+          start: npm start
+          # quote the url to be safe against YML parsing surprises
+          wait-on: 'http://localhost:8888'
+          # record the results on the Cypress Dashboard
+          # https://on.cypress.io/dashboard-introduction
+          record: true
+          tag: all
+        # environment variables while running Cypress
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
