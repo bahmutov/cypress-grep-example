@@ -1,19 +1,8 @@
-/// <reference types="cypress" />
+// tip: the cypress-grep type definitions in node_modules
+// will load cypress type definitions too
+/// <reference types="cypress-grep" />
 
 declare namespace Cypress {
-  // specify additional properties in the TestConfig object
-  // in our case we will add "tags" property
-  interface TestConfigOverrides {
-    /**
-     * List of tags for this test
-     * @example a single tag
-     *  it('logs in', { tags: '@smoke' }, () => { ... })
-     * @example multiple tags
-     *  it('works', { tags: ['@smoke', '@slow'] }, () => { ... })
-     */
-    tags: string | string[]
-  }
-
   interface Chainable<Subject> {
     /**
      * Create several Todo items via UI
