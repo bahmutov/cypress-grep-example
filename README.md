@@ -5,9 +5,11 @@
 [![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-7.3.0-brightgreen) ![cypress-grep version](https://img.shields.io/badge/cypress--grep-2.1.0-brightgreen)
 > Example application with grep tags inside the test names
 
-See [cypress-grep](https://github.com/bahmutov/cypress-grep)
+The demo example for the [cypress-grep](https://github.com/bahmutov/cypress-grep) plugin.
 
-Watch the video [intro to cypress-grep](https://www.youtube.com/watch?v=HS-Px-Sghd8)
+Watch the video [intro to cypress-grep](https://www.youtube.com/watch?v=HS-Px-Sghd8) which shows how this repository tags tests, uses [cypress-grep](https://github.com/bahmutov/cypress-grep) plugin, and sets up the TypeScript intelligent code completion.
+
+You can also watch [How I organize pull request workflows](https://youtu.be/SFW7Ecj5TNE) where I show how the GitHub workflows in [.github/workflows](./.github/workflows) are organized to run the smoke tests first on pull request.
 
 ## Install and start the app
 
