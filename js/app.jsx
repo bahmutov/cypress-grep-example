@@ -43,7 +43,7 @@ var app = app || {}
 				setTimeout(() => {
 					this.props.model.addTodo(val)
 					React.findDOMNode(this.refs.newField).value = ''
-				}, Math.random()*66)
+				}, Math.random()*67)
       }
     },
 
