@@ -3,5 +3,9 @@
   "fixturesFolder": false,
   "testFiles": "**/*spec.js",
   "projectId": "4agux9",
-  "video": false
+  "video": false,
+  "retries": {
+    "runMode": 1,
+    "openMode": 0
+  }
 }

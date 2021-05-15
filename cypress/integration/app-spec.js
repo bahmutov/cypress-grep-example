@@ -36,10 +36,19 @@ describe('TodoMVC - React', function () {
   })
 
   // a very simple example helpful during presentations
-  it('adds 2 todos', { tags: '@smoke' }, function () {
-    cy.get('.new-todo').type('learn testing{enter}').type('be cool{enter}')
+  it('adds 4 todos', { tags: '@smoke' }, function () {
+    cy.get('.new-todo')
+      .type('learn testing{enter}')
+      .type('be cool{enter}')
+      .type('run tests{enter}')
+      .type('fight flake{enter}')
 
-    cy.get('.todo-list li').should('have.length', 2)
+    cy.get('.todo-list li').should('have.length', 4)
+    // confirm individual items
+    cy.get('.todo-list li').eq(0).should('have.text', 'learn testing')
+    cy.get('.todo-list li').eq(1).should('have.text', 'be cool')
+    cy.get('.todo-list li').eq(2).should('have.text', 'run tests')
+    cy.get('.todo-list li').eq(3).should('have.text', 'fight flake')
   })
 
   context('When page is initially opened', function () {
