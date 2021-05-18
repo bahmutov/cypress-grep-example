@@ -57,19 +57,23 @@ describe('TodoMVC - React', function () {
     })
 
     // @ts-ignore
-    it('should respect the back button', { tags: ['@smoke'] }, function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
+    it.only(
+      'should respect the back button',
+      { tags: ['@smoke'] },
+      function () {
+        cy.get('@todos').eq(1).find('.toggle').check()
 
-      cy.get('.filters').contains('Active').click()
+        cy.get('.filters').contains('Active').click()
 
-      cy.get('.filters').contains('Completed').click()
+        cy.get('.filters').contains('Completed').click()
 
-      cy.get('@todos').should('have.length', 1)
-      cy.go('back')
-      cy.get('@todos').should('have.length', 2)
-      cy.go('back')
-      cy.get('@todos').should('have.length', 3)
-    })
+        cy.get('@todos').should('have.length', 1)
+        cy.go('back')
+        cy.get('@todos').should('have.length', 2)
+        cy.go('back')
+        cy.get('@todos').should('have.length', 3)
+      },
+    )
 
     it('should allow me to display completed items', function () {
       cy.get('@todos').eq(1).find('.toggle').check()
@@ -79,7 +83,7 @@ describe('TodoMVC - React', function () {
       cy.get('@todos').should('have.length', 1)
     })
 
-    it.only('should allow me to display all items @smoke', function () {
+    it('should allow me to display all items @smoke', function () {
       cy.get('@todos').eq(1).find('.toggle').check()
 
       cy.get('.filters').contains('Active').click()
