@@ -49,15 +49,19 @@ Cypress.Commands.add('createDefaultTodos', function () {
       expect($listItems[1], 'second item').to.have.text(TODO_ITEM_TWO)
       expect($listItems[2], 'third item').to.have.text(TODO_ITEM_THREE)
     })
-    .then(function ($listItems) {
-      // once we're done inserting each of the todos
-      // above we want to return the .todo-list li's
-      // to allow for further chaining and then
-      // we want to snapshot the state of the DOM
-      // and end the command so it goes from that
-      // 'spinning blue state' to the 'finished state'
-      cmd.set({ $el: $listItems }).snapshot().end()
-    })
+
+  // select the elements again to avoid the alias including
+  // the assertions, as they might not be passing
+  // when the test code uses the alias
+  cy.get('.todo-list li', { log: false }).then(function ($listItems) {
+    // once we're done inserting each of the todos
+    // above we want to return the .todo-list li's
+    // to allow for further chaining and then
+    // we want to snapshot the state of the DOM
+    // and end the command so it goes from that
+    // 'spinning blue state' to the 'finished state'
+    cmd.set({ $el: $listItems }).snapshot().end()
+  })
 })
 
 Cypress.Commands.add('createTodo', function (todo) {
