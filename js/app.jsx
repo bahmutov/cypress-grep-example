@@ -40,10 +40,8 @@ var app = app || {}
       var val = React.findDOMNode(this.refs.newField).value.trim()
 
 			if (val) {
-				setTimeout(() => {
-					this.props.model.addTodo(val)
-					React.findDOMNode(this.refs.newField).value = ''
-				}, Math.random()*67)
+        this.props.model.addTodo(val)
+        React.findDOMNode(this.refs.newField).value = ''
       }
     },
 
