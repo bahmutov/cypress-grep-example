@@ -42,8 +42,8 @@ Cypress.Commands.add('createDefaultTodos', function () {
     .type(`${TODO_ITEM_THREE}{enter}`, opts)
 
   cy.get('.todo-list li', { log: false })
-    .should('have.length', 3)
-    .and(($listItems) => {
+    // .should('have.length', 3)
+    .should(($listItems) => {
       // check the text in each list item
       expect($listItems[0], 'first item').to.have.text(TODO_ITEM_ONE)
       expect($listItems[1], 'second item').to.have.text(TODO_ITEM_TWO)

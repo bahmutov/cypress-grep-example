@@ -79,7 +79,7 @@ describe('TodoMVC - React', function () {
       cy.get('@todos').should('have.length', 1)
     })
 
-    it('should allow me to display all items @smoke', function () {
+    it.only('should allow me to display all items @smoke', function () {
       cy.get('@todos').eq(1).find('.toggle').check()
 
       cy.get('.filters').contains('Active').click()
