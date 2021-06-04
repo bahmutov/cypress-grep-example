@@ -75,7 +75,7 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('New Todo', function () {
+  context('New Todo', { tags: '@new-todo' }, function () {
     // New commands used here:
     // https://on.cypress.io/type
     // https://on.cypress.io/eq
