@@ -48,3 +48,13 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # confirm the filtering and skipping tests works as expected
+      # using https://github.com/bahmutov/cypress-expect
+      - name: Run using grep 🔎
+        # all specs without the tests are filtered
+        # and all other tests are skipped
+        run: |
+          npx cypress-expect run \
+            --env grep="update state when items are completed" \
+            --expect-exactly expected/one.json
