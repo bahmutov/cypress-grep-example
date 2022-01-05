@@ -35,9 +35,7 @@ jobs:
         with:
           # we have already installed all dependencies above
           install: false
-          start: npm run start:ci
-          # quote the url to be safe against YML parsing surprises
-          wait-on: 'http://localhost:8888'
+          # the server is already running
           # record the results on the Cypress Dashboard
           # https://on.cypress.io/dashboard-introduction
           record: true
@@ -48,3 +46,19 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # confirm the filtering and skipping tests works as expected
+      # using https://github.com/bahmutov/cypress-expect
+      - name: Run using grep 🔎
+        # all specs without the tests are filtered
+        # and all other tests are skipped
+        run: |
+          npx cypress-expect run \
+            --env grep="update state when items are completed" \
+            --expect-exactly expected/one.json
+
+      - name: Run using grep tags 🔎
+        run: |
+          npx cypress-expect run \
+            --env grepTags='@misc' \
+            --expect-exactly expected/tag-misc.json

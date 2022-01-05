@@ -62,7 +62,7 @@ describe('TodoMVC - React', function () {
   })
 
   context('No Todos', function () {
-    it('should hide #main and #footer', function () {
+    it('should hide #main and #footer', { tags: '@misc' }, function () {
       // Unlike the TodoMVC tests, we don't need to create
       // a gazillion helper functions which are difficult to
       // parse through. Instead we'll opt to use real selectors

@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "cypress": "9.2.0",
+    "cypress-expect": "2.5.1",
     "cypress-grep": "2.12.2",
     "prettier": "2.2.1",
     "start-server-and-test": "1.12.1"
