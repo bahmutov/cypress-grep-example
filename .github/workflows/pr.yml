@@ -56,3 +56,9 @@ jobs:
           npx cypress-expect run \
             --env grep="update state when items are completed" \
             --expect-exactly expected/one.json
+
+      - name: Run using grep tags 🔎
+        run: |
+          npx cypress-expect run \
+            --env grepTags='@misc' \
+            --expect-exactly expected/tag-misc.json
