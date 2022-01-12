@@ -9,7 +9,8 @@
     "dev": "start-test 8888 cypress:open",
     "start": "http-server -p 8888 -c-1",
     "start:ci": "http-server -p 8888 -c-1 --silent",
-    "dev:run": "start-test start:ci 8888 cypress:run"
+    "dev:run": "start-test start:ci 8888 cypress:run",
+    "print-tests": "find-cypress-specs --names"
   },
   "dependencies": {
     "director": "1.2.8",
@@ -22,6 +23,7 @@
     "cypress": "9.2.1",
     "cypress-expect": "2.5.1",
     "cypress-grep": "2.12.2",
+    "find-cypress-specs": "1.4.0",
     "prettier": "2.2.1",
     "start-server-and-test": "1.12.1"
   }
