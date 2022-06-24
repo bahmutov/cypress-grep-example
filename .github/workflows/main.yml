@@ -45,3 +45,10 @@ jobs:
           npx cypress-expect run \
             --env grepTags='@misc' \
             --expect-exactly expected/tag-misc.json
+
+      - name: Burn tests 🔥
+        run: |
+          npx cypress-expect run \
+            --env burn=3 \
+            --spec cypress/integration/counter-spec.js \
+            --expect-exactly expected/burn-counter.json

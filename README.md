@@ -68,6 +68,16 @@ cypress-grep: filtering using tag "@smoke"
 
 See the [.github/workflows/main.yml](./.github/workflows/main.yml) that first runs the smoke tests and then all the tests during the CI run. You can see the runs in the [repo's Actions tab](https://github.com/bahmutov/cypress-grep-example/actions).
 
+## Repeat and burn tests
+
+You can run the selected tests multiple times by using the `burn=N` parameter. For example, run all all the tests in the spec A five times using:
+
+```text
+$ npx cypress run --env burn=5 --spec cypress/integration/A.js
+# run the smoke tests 3 times
+$ npx cypress run --env grepTag=@smoke,burn=3
+```
+
 ## Print test names
 
 To see the test names and their tags, run `npm run print-tests` which uses [find-cypress-specs](https://github.com/bahmutov/find-cypress-specs).
