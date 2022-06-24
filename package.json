@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "cypress": "9.7.0",
-    "cypress-expect": "2.5.2",
+    "cypress-expect": "2.5.3",
     "cypress-grep": "2.14.0",
     "find-cypress-specs": "1.17.0",
     "prettier": "2.2.1",
