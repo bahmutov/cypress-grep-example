@@ -8,10 +8,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: All E2E tests 🧪
-        uses: cypress-io/github-action@v2
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v4
         with:
           start: npm run start:ci
           # quote the url to be safe against YML parsing surprises
@@ -50,5 +51,5 @@ jobs:
         run: |
           npx cypress-expect run \
             --env burn=3 \
-            --spec cypress/integration/counter-spec.js \
+            --spec cypress/e2e/counter-spec.js \
             --expect-exactly expected/burn-counter.json
