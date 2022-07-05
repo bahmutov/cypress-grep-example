@@ -78,6 +78,10 @@ $ npx cypress run --env burn=5 --spec cypress/integration/A.js
 $ npx cypress run --env grepTag=@smoke,burn=3
 ```
 
+## Upgrade to Cypress v10
+
+See the pull request [#79](https://github.com/bahmutov/cypress-grep-example/pull/79) that updates this repo to use Cypress v10
+
 ## Print test names
 
 To see the test names and their tags, run `npm run print-tests` which uses [find-cypress-specs](https://github.com/bahmutov/find-cypress-specs).
