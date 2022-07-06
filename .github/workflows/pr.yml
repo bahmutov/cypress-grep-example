@@ -48,6 +48,10 @@ jobs:
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # https://github.com/bahmutov/find-cypress-specs
+      - name: Print test names 🖨
+        run: npm run print-tests
+
       # confirm the filtering and skipping tests works as expected
       # using https://github.com/bahmutov/cypress-expect
       - name: Run using grep 🔎
