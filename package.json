@@ -23,7 +23,7 @@
     "cypress": "10.11.0",
     "cypress-expect": "2.5.3",
     "cypress-grep": "3.0.4",
-    "find-cypress-specs": "1.19.4",
+    "find-cypress-specs": "1.20.2",
     "prettier": "2.2.1",
     "start-server-and-test": "1.12.1"
   }
