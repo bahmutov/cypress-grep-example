@@ -36,7 +36,7 @@ describe('TodoMVC - React', function () {
   })
 
   // a very simple example helpful during presentations
-  it('adds 4 todos', { tags: '@smoke' }, function () {
+  it('adds 4 todos', function () {
     cy.get('.new-todo')
       .type('learn testing{enter}')
       .type('be cool{enter}')
@@ -75,7 +75,7 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('New Todo', { tags: '@new-todo' }, function () {
+  context('New Todo', function () {
     // New commands used here:
     // https://on.cypress.io/type
     // https://on.cypress.io/eq
@@ -235,19 +235,15 @@ describe('TodoMVC - React', function () {
       cy.get('.clear-completed').contains('Clear completed')
     })
 
-    it(
-      'should remove completed items when clicked',
-      { tags: '@smoke' },
-      function () {
-        cy.get('@todos').eq(1).find('.toggle').check()
+    it('should remove completed items when clicked', function () {
+      cy.get('@todos').eq(1).find('.toggle').check()
 
-        cy.get('.clear-completed').click()
-        cy.get('@todos').should('have.length', 2)
-        cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
+      cy.get('.clear-completed').click()
+      cy.get('@todos').should('have.length', 2)
+      cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
 
-        cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
-      },
-    )
+      cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
+    })
 
     it('should be hidden when there are no items that are completed', function () {
       cy.get('@todos').eq(1).find('.toggle').check()
