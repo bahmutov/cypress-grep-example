@@ -1,7 +1,3 @@
-// tip: the @bahmutov/cy-grep type definitions in node_modules
-// will load cypress type definitions too
-/// <reference types="@bahmutov/cy-grep" />
-
 declare namespace Cypress {
   interface Chainable<Subject> {
     /**
