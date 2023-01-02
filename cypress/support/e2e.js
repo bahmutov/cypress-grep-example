@@ -2,6 +2,6 @@
 
 require('./commands')
 
-// register @cypress/grep
-const registerCypressGrep = require('@cypress/grep')
+// register @bahmutov/cy-grep
+const registerCypressGrep = require('@bahmutov/cy-grep')
 registerCypressGrep()
