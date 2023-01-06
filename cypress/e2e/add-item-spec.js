@@ -36,7 +36,7 @@ describe('TodoMVC - React', { tags: '@add' }, function () {
   })
 
   // a very simple example helpful during presentations
-  it('adds 4 todos', function () {
+  it('adds 4 todos', { tags: '@smoke' }, function () {
     cy.get('.new-todo')
       .type('learn testing{enter}')
       .type('be cool{enter}')
