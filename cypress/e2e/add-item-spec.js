@@ -7,7 +7,7 @@
 
 import { TODO_ITEM_ONE, TODO_ITEM_TWO, TODO_ITEM_THREE } from './utils'
 
-describe('TodoMVC - React', function () {
+describe('TodoMVC - React', { tags: '@add' }, function () {
   beforeEach(function () {
     // By default Cypress will automatically
     // clear the Local Storage prior to each
@@ -49,30 +49,6 @@ describe('TodoMVC - React', function () {
     cy.get('.todo-list li').eq(1).should('have.text', 'be cool')
     cy.get('.todo-list li').eq(2).should('have.text', 'run tests')
     cy.get('.todo-list li').eq(3).should('have.text', 'fight flake')
-  })
-
-  context('When page is initially opened', function () {
-    it('should focus on the todo input field', function () {
-      // get the currently focused element and assert
-      // that it has class='new-todo'
-      //
-      // http://on.cypress.io/focused
-      cy.focused().should('have.class', 'new-todo')
-    })
-  })
-
-  context('No Todos', function () {
-    it('should hide #main and #footer', { tags: '@misc' }, function () {
-      // Unlike the TodoMVC tests, we don't need to create
-      // a gazillion helper functions which are difficult to
-      // parse through. Instead we'll opt to use real selectors
-      // so as to make our testing intentions as clear as possible.
-      //
-      // http://on.cypress.io/get
-      cy.get('.todo-list li').should('not.exist')
-      cy.get('.main').should('not.exist')
-      cy.get('.footer').should('not.exist')
-    })
   })
 
   context('New Todo', function () {
@@ -156,101 +132,6 @@ describe('TodoMVC - React', function () {
       cy.createTodo(TODO_ITEM_ONE)
       cy.get('.main').should('be.visible')
       cy.get('.footer').should('be.visible')
-    })
-  })
-
-  context('Item', function () {
-    // New commands used here:
-    // - cy.clear    https://on.cypress.io/api/clear
-
-    it('should allow me to mark items as complete', function () {
-      // we are aliasing the return value of
-      // our custom command 'createTodo'
-      //
-      // the return value is the <li> in the <ul.todos-list>
-      cy.createTodo(TODO_ITEM_ONE).as('firstTodo')
-      cy.createTodo(TODO_ITEM_TWO).as('secondTodo')
-
-      cy.get('@firstTodo').find('.toggle').check()
-
-      cy.get('@firstTodo').should('have.class', 'completed')
-
-      cy.get('@secondTodo').should('not.have.class', 'completed')
-      cy.get('@secondTodo').find('.toggle').check()
-
-      cy.get('@firstTodo').should('have.class', 'completed')
-      cy.get('@secondTodo').should('have.class', 'completed')
-    })
-
-    it('should allow me to un-mark items as complete', function () {
-      cy.createTodo(TODO_ITEM_ONE).as('firstTodo')
-      cy.createTodo(TODO_ITEM_TWO).as('secondTodo')
-
-      cy.get('@firstTodo').find('.toggle').check()
-
-      cy.get('@firstTodo').should('have.class', 'completed')
-      cy.get('@secondTodo').should('not.have.class', 'completed')
-
-      cy.get('@firstTodo').find('.toggle').uncheck()
-
-      cy.get('@firstTodo').should('not.have.class', 'completed')
-      cy.get('@secondTodo').should('not.have.class', 'completed')
-    })
-
-    it('should allow me to edit an item', function () {
-      cy.createDefaultTodos().as('todos')
-
-      cy.get('@todos')
-        .eq(1)
-        .as('secondTodo')
-        // TODO: fix this, dblclick should
-        // have been issued to label
-        .find('label')
-        .dblclick()
-
-      // clear out the inputs current value
-      // and type a new value
-      cy.get('@secondTodo')
-        .find('.edit')
-        .clear()
-        .type('buy some sausages')
-        .type('{enter}')
-
-      // explicitly assert about the text value
-      cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
-
-      cy.get('@secondTodo').should('contain', 'buy some sausages')
-      cy.get('@todos').eq(2).should('contain', TODO_ITEM_THREE)
-    })
-  })
-
-  context('Clear completed button', function () {
-    beforeEach(function () {
-      cy.createDefaultTodos().as('todos')
-    })
-
-    it('should display the correct text', function () {
-      cy.get('@todos').eq(0).find('.toggle').check()
-
-      cy.get('.clear-completed').contains('Clear completed')
-    })
-
-    it('should remove completed items when clicked', function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
-
-      cy.get('.clear-completed').click()
-      cy.get('@todos').should('have.length', 2)
-      cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
-
-      cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
-    })
-
-    it('should be hidden when there are no items that are completed', function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
-
-      cy.get('.clear-completed').should('be.visible').click()
-
-      cy.get('.clear-completed').should('not.exist')
     })
   })
 })

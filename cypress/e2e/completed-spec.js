@@ -5,7 +5,9 @@
 // check this file using TypeScript if available
 // @ts-check
 
-describe('TodoMVC - React', function () {
+import { TODO_ITEM_ONE, TODO_ITEM_THREE } from './utils'
+
+describe('TodoMVC - React', { tags: '@complete' }, function () {
   beforeEach(function () {
     // By default Cypress will automatically
     // clear the Local Storage prior to each
@@ -93,6 +95,36 @@ describe('TodoMVC - React', function () {
 
       // assert the toggle all is checked again
       cy.get('@toggleAll').should('be.checked')
+    })
+  })
+
+  context('Clear completed button', function () {
+    beforeEach(function () {
+      cy.createDefaultTodos().as('todos')
+    })
+
+    it('should display the correct text', function () {
+      cy.get('@todos').eq(0).find('.toggle').check()
+
+      cy.get('.clear-completed').contains('Clear completed')
+    })
+
+    it('should remove completed items when clicked', function () {
+      cy.get('@todos').eq(1).find('.toggle').check()
+
+      cy.get('.clear-completed').click()
+      cy.get('@todos').should('have.length', 2)
+      cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
+
+      cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
+    })
+
+    it('should be hidden when there are no items that are completed', function () {
+      cy.get('@todos').eq(1).find('.toggle').check()
+
+      cy.get('.clear-completed').should('be.visible').click()
+
+      cy.get('.clear-completed').should('not.exist')
     })
   })
 })

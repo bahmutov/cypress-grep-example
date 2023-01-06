@@ -5,9 +5,9 @@
 // check this file using TypeScript if available
 // @ts-check
 
-import { TODO_ITEM_ONE, TODO_ITEM_TWO } from './utils'
+import { TODO_ITEM_ONE, TODO_ITEM_TWO, TODO_ITEM_THREE } from './utils'
 
-describe('TodoMVC - React', { tags: '@persistence' }, function () {
+describe('TodoMVC - React', { tags: '@misc' }, function () {
   beforeEach(function () {
     // By default Cypress will automatically
     // clear the Local Storage prior to each
@@ -35,29 +35,27 @@ describe('TodoMVC - React', { tags: '@persistence' }, function () {
     })
   })
 
-  context('Persistence', function () {
-    it('should persist its data', { tags: '@smoke' }, function () {
-      // mimicking TodoMVC tests
-      // by writing out this function
-      function testState() {
-        cy.get('@firstTodo')
-          .should('contain', TODO_ITEM_ONE)
-          .and('have.class', 'completed')
+  context('When page is initially opened', function () {
+    it('should focus on the todo input field', function () {
+      // get the currently focused element and assert
+      // that it has class='new-todo'
+      //
+      // http://on.cypress.io/focused
+      cy.focused().should('have.class', 'new-todo')
+    })
+  })
 
-        cy.get('@secondTodo')
-          .should('contain', TODO_ITEM_TWO)
-          .and('not.have.class', 'completed')
-      }
-
-      cy.createTodo(TODO_ITEM_ONE).as('firstTodo')
-      cy.createTodo(TODO_ITEM_TWO).as('secondTodo')
-      cy.get('@firstTodo')
-        .find('.toggle')
-        .check()
-        .then(testState)
-
-        .reload()
-        .then(testState)
+  context('No Todos', function () {
+    it('should hide #main and #footer', function () {
+      // Unlike the TodoMVC tests, we don't need to create
+      // a gazillion helper functions which are difficult to
+      // parse through. Instead we'll opt to use real selectors
+      // so as to make our testing intentions as clear as possible.
+      //
+      // http://on.cypress.io/get
+      cy.get('.todo-list li').should('not.exist')
+      cy.get('.main').should('not.exist')
+      cy.get('.footer').should('not.exist')
     })
   })
 })

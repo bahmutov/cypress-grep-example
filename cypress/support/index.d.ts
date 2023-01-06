@@ -1,3 +1,5 @@
+/// <reference types="@bahmutov/cy-grep" />
+
 declare namespace Cypress {
   interface Chainable<Subject> {
     /**
