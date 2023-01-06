@@ -14,5 +14,9 @@ declare namespace Cypress {
      * cy.createTodo('new item')
      */
     createTodo(title: string): Chainable<any>
+    /**
+     * Returns the todo LI items
+     */
+    getTodos(): Chainable<JQuery>
   }
 }

@@ -4,9 +4,12 @@ module.exports = defineConfig({
   fixturesFolder: false,
   video: false,
   e2e: {
-    // We've imported your old cypress plugins here.
-    // You may want to clean this up later by importing these.
+    env: {
+      grepFilterSpecs: true,
+      grepOmitFiltered: true,
+    },
     setupNodeEvents(on, config) {
+      require('@bahmutov/cy-grep/src/plugin')(config)
       // make sure to return the config object
       // as it might have been modified by the plugin
       return config
