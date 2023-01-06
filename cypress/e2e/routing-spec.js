@@ -57,7 +57,6 @@ describe('TodoMVC - React', { tags: '@routing' }, function () {
       cy.getTodos().eq(1).should('contain', TODO_ITEM_THREE)
     })
 
-    // @ts-ignore
     it('should respect the back button', { tags: ['@smoke'] }, function () {
       cy.getTodos().eq(1).find('.toggle').check()
 
@@ -80,7 +79,7 @@ describe('TodoMVC - React', { tags: '@routing' }, function () {
       cy.getTodos().should('have.length', 1)
     })
 
-    it('should allow me to display all items @smoke', function () {
+    it('should allow me to display all items', function () {
       cy.getTodos().eq(1).find('.toggle').check()
 
       cy.get('.filters').contains('Active').click()
