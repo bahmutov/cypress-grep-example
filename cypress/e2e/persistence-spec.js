@@ -40,11 +40,13 @@ describe('TodoMVC - React', { tags: '@persistence' }, function () {
       // mimicking TodoMVC tests
       // by writing out this function
       function testState() {
-        cy.get('@firstTodo')
+        cy.getTodos()
+          .eq(0)
           .should('contain', TODO_ITEM_ONE)
           .and('have.class', 'completed')
 
-        cy.get('@secondTodo')
+        cy.getTodos()
+          .eq(1)
           .should('contain', TODO_ITEM_TWO)
           .and('not.have.class', 'completed')
       }
