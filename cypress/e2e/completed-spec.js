@@ -100,27 +100,28 @@ describe('TodoMVC - React', { tags: '@complete' }, function () {
 
   context('Clear completed button', function () {
     beforeEach(function () {
-      cy.createDefaultTodos().as('todos')
+      cy.createDefaultTodos()
+      cy.getTodos().should('have.length', 3)
     })
 
     it('should display the correct text', function () {
-      cy.get('@todos').eq(0).find('.toggle').check()
+      cy.getTodos().eq(0).find('.toggle').check()
 
       cy.get('.clear-completed').contains('Clear completed')
     })
 
     it('should remove completed items when clicked', function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
+      cy.getTodos().eq(1).find('.toggle').check()
 
       cy.get('.clear-completed').click()
-      cy.get('@todos').should('have.length', 2)
-      cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
+      cy.getTodos().should('have.length', 2)
+      cy.getTodos().eq(0).should('contain', TODO_ITEM_ONE)
 
-      cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
+      cy.getTodos().eq(1).should('contain', TODO_ITEM_THREE)
     })
 
     it('should be hidden when there are no items that are completed', function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
+      cy.getTodos().eq(1).find('.toggle').check()
 
       cy.get('.clear-completed').should('be.visible').click()
 
