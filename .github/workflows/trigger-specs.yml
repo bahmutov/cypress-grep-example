@@ -1,0 +1,18 @@
+name: Trigger specs
+on:
+  workflow_dispatch:
+    inputs:
+      specs:
+        description: Comma-separates spec filenames
+        required: true
+jobs:
+  specs:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Print specs 🖨️
+        env:
+          EVENT: ${{ toJson(github.event) }}
+        run: echo "$EVENT"
+
+      - name: Checkout 🛎
+        uses: actions/checkout@v3
