@@ -16,6 +16,14 @@ on:
         default: 1
 
 jobs:
+  print:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Print inputs 🖨️
+        env:
+          INPUTS: ${{ toJson(github.event.inputs) }}
+        run: echo "$INPUTS"
+
   specs:
     # https://github.com/bahmutov/cypress-workflows
     uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
