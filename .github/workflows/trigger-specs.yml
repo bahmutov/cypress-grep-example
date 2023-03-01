@@ -23,4 +23,4 @@ jobs:
         with:
           start: npm run start:ci
           wait-on: 'http://localhost:8888'
-          spec: ${{ github.event.inputs.specs }}
+          spec: '${{ github.event.inputs.specs }}'
