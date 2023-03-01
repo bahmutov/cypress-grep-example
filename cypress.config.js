@@ -14,7 +14,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // optional: register cy-grep plugin code
       // https://github.com/bahmutov/cy-grep
-      equire('@bahmutov/cy-grep/src/plugin')(config)
+      require('@bahmutov/cy-grep/src/plugin')(config)
 
       // make sure to return the config object
       // as it might have been modified by the plugin
