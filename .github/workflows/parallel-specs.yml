@@ -19,7 +19,7 @@ jobs:
     # https://github.com/bahmutov/cypress-workflows
     uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
     with:
-      n: ${{ github.event.inputs.n }}
+      n: ${{ Number(github.event.inputs.n) }}
       spec: '${{ github.event.inputs.specs }}'
       tag: '${{ github.event.inputs.recordingTag }}'
       group: Selected specs
