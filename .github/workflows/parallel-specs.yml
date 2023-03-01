@@ -12,7 +12,7 @@ on:
       machines:
         description: Number of machines to use to run these specs
         required: false
-        type: integer
+        type: number
         default: 1
 
 jobs:
