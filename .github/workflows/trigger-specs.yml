@@ -30,7 +30,7 @@ jobs:
           wait-on: 'http://localhost:8888'
           spec: '${{ github.event.inputs.specs }}'
           record: true
-          tag: '${{ recordingTag }}'
+          tag: '${{ github.event.inputs.recordingTag }}'
           group: Selected specs
           # each workflow execution should have its own recorded run
           ci-build-id: '${{ github.workflow }} - ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempts }}'
