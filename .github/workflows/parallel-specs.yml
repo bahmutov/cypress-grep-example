@@ -13,14 +13,13 @@ on:
         description: Number of machines to use to run these specs
         required: false
         default: 1
-        type: integer
 
 jobs:
   specs:
     # https://github.com/bahmutov/cypress-workflows
     uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
     with:
-      n: ${{ github.event.inputs.n }}
+      n: ${{ github.event.inputs.machines }}
       spec: '${{ github.event.inputs.specs }}'
       tag: '${{ github.event.inputs.recordingTag }}'
       group: Selected specs
