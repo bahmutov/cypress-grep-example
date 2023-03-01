@@ -17,15 +17,15 @@ on:
 jobs:
   specs:
     # https://github.com/bahmutov/cypress-workflows
-    - uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
-      with:
-        n: ${{ github.event.inputs.n }}
-        spec: '${{ github.event.inputs.specs }}'
-        tag: '${{ github.event.inputs.recordingTag }}'
-        group: Selected specs
-        start: npm run start:ci
-        wait-on: 'http://localhost:8888'
-        # each workflow execution should have its own recorded run
-        ci-build-id: '${{ github.workflow }} - ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempts }}'
-      secrets:
-        recordKey: ${{ secrets.CYPRESS_RECORD_KEY }}
+    uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
+    with:
+      n: ${{ github.event.inputs.n }}
+      spec: '${{ github.event.inputs.specs }}'
+      tag: '${{ github.event.inputs.recordingTag }}'
+      group: Selected specs
+      start: npm run start:ci
+      wait-on: 'http://localhost:8888'
+      # each workflow execution should have its own recorded run
+      ci-build-id: '${{ github.workflow }} - ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempts }}'
+    secrets:
+      recordKey: ${{ secrets.CYPRESS_RECORD_KEY }}
