@@ -13,6 +13,7 @@ jobs:
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v5
         with:
+          build: npm run stop-only
           start: npm run start:ci
           # quote the url to be safe against YML parsing surprises
           wait-on: 'http://localhost:8888'

@@ -76,6 +76,9 @@ jobs:
         with:
           runTests: false
 
+      - name: Stop only 🛑
+        run: npm run stop-only
+
       - name: Start server 🏁
         run: npm run start:ci &
 

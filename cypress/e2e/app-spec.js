@@ -229,7 +229,7 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context.only('Clear completed button', function () {
+  context('Clear completed button', function () {
     beforeEach(function () {
       cy.createDefaultTodos()
     })
