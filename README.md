@@ -13,6 +13,8 @@ Watch the video [intro to cypress-grep](https://www.youtube.com/watch?v=HS-Px-Sg
 
 You can also watch [How I organize pull request workflows](https://youtu.be/SFW7Ecj5TNE) where I show how the GitHub workflows in [.github/workflows](./.github/workflows) are organized to run the smoke tests first on pull request.
 
+Read the blog post [Trigger Selected Cypress Specs Using GitHub Actions](https://glebbahmutov.com/blog/trigger-cypress-specs/)
+
 ## Install and start the app
 
 Before filtering by test title and tag, we need to install dependencies and start the application
@@ -85,6 +87,20 @@ See the pull request [#79](https://github.com/bahmutov/cypress-grep-example/pull
 ## Print test names
 
 To see the test names and their tags, run `npm run print-tests` which uses [find-cypress-specs](https://github.com/bahmutov/find-cypress-specs).
+
+## Small print
+
+Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
+
+- [@bahmutov](https://twitter.com/bahmutov)
+- [glebbahmutov.com](https://glebbahmutov.com)
+- [blog](https://glebbahmutov.com/blog)
+- [videos](https://www.youtube.com/glebbahmutov)
+- [presentations](https://slides.com/bahmutov)
+- [cypress.tips](https://cypress.tips)
+- 🎓 [My Cypress courses](https://cypress.tips/courses)
+
+License: MIT - do anything with the code, but don't blame me if it does not work.
 
 [ci image]: https://github.com/bahmutov/cypress-grep-example/workflows/ci/badge.svg?branch=main
 [ci url]: https://github.com/bahmutov/cypress-grep-example/actions
