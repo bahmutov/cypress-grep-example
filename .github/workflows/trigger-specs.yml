@@ -27,6 +27,8 @@ jobs:
           record: true
           tag: Trigger specs
           group: Selected specs
+          # each workflow execution should have its own recorded run
+          ci-build-id: '${{ github.workflow }} - ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempts }}'
         env:
           # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
