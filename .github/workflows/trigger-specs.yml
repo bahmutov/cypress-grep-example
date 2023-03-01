@@ -24,3 +24,9 @@ jobs:
           start: npm run start:ci
           wait-on: 'http://localhost:8888'
           spec: '${{ github.event.inputs.specs }}'
+          record: true
+          tag: Trigger specs
+          group: Selected specs
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
