@@ -5,7 +5,12 @@
 // check this file using TypeScript if available
 // @ts-check
 
-import { TODO_ITEM_ONE, TODO_ITEM_TWO, TODO_ITEM_THREE } from './utils'
+import {
+  TODO_ITEM_ONE,
+  TODO_ITEM_TWO,
+  TODO_ITEM_THREE,
+  getTodos,
+} from './utils'
 
 describe('TodoMVC - React', function () {
   beforeEach(function () {
@@ -224,13 +229,13 @@ describe('TodoMVC - React', function () {
     })
   })
 
-  context('Clear completed button', function () {
+  context.only('Clear completed button', function () {
     beforeEach(function () {
-      cy.createDefaultTodos().as('todos')
+      cy.createDefaultTodos()
     })
 
     it('should display the correct text', function () {
-      cy.get('@todos').eq(0).find('.toggle').check()
+      getTodos().eq(0).find('.toggle').check()
 
       cy.get('.clear-completed').contains('Clear completed')
     })
@@ -239,18 +244,18 @@ describe('TodoMVC - React', function () {
       'should remove completed items when clicked',
       { tags: '@smoke' },
       function () {
-        cy.get('@todos').eq(1).find('.toggle').check()
+        getTodos().eq(1).find('.toggle').check()
 
         cy.get('.clear-completed').click()
-        cy.get('@todos').should('have.length', 2)
-        cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
+        getTodos().should('have.length', 2)
+        getTodos().eq(0).should('contain', TODO_ITEM_ONE)
 
-        cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
+        getTodos().eq(1).should('contain', TODO_ITEM_THREE)
       },
     )
 
     it('should be hidden when there are no items that are completed', function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
+      getTodos().eq(1).find('.toggle').check()
 
       cy.get('.clear-completed').should('be.visible').click()
 

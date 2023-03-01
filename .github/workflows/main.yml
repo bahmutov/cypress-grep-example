@@ -12,7 +12,7 @@ jobs:
 
       - name: All E2E tests 🧪
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v5
         with:
           start: npm run start:ci
           # quote the url to be safe against YML parsing surprises
@@ -35,16 +35,6 @@ jobs:
       - name: Print test names 🖨
         run: npm run print-tests
 
-      # confirm the filtering and skipping tests works as expected
-      # using https://github.com/bahmutov/cypress-expect
-      - name: Run using grep 🔎
-        # all specs without the tests are filtered
-        # and all other tests are skipped
-        run: |
-          npx cypress-expect run \
-            --env grep="update state when items are completed" \
-            --expect-exactly expected/one.json
-
       - name: Run using grep tags 🔎
         run: |
           npx cypress-expect run \
@@ -57,3 +47,32 @@ jobs:
             --env burn=3 \
             --spec cypress/e2e/counter-spec.js \
             --expect-exactly expected/burn-counter.json
+
+  by-title:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v3
+
+      - name: Install 📦
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v5
+        with:
+          runTests: false
+
+      - name: Start server 🏁
+        run: npm run start:ci &
+
+      # https://github.com/bahmutov/find-cypress-specs
+      - name: Print test names 🖨
+        run: npm run print-tests
+
+      # confirm the filtering and skipping tests works as expected
+      # using https://github.com/bahmutov/cypress-expect
+      - name: Run using grep title 🔎
+        # all specs without the tests are filtered
+        # and all other tests are skipped
+        run: |
+          npx cypress-expect run \
+            --env grep="update state when items are completed" \
+            --expect-exactly expected/one.json

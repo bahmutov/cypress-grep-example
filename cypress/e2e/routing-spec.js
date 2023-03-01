@@ -5,7 +5,7 @@
 // check this file using TypeScript if available
 // @ts-check
 
-import { TODO_ITEM_ONE, TODO_ITEM_THREE } from './utils'
+import { TODO_ITEM_ONE, TODO_ITEM_THREE, getTodos } from './utils'
 
 describe('TodoMVC - React', function () {
   beforeEach(function () {
@@ -43,44 +43,44 @@ describe('TodoMVC - React', function () {
     // https://on.cypress.io/within
 
     beforeEach(function () {
-      cy.createDefaultTodos().as('todos')
+      cy.createDefaultTodos()
     })
 
     it('should allow me to display active items', function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
+      getTodos().eq(1).find('.toggle').check()
 
       cy.get('.filters').contains('Active').click()
 
-      cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
+      getTodos().eq(0).should('contain', TODO_ITEM_ONE)
 
-      cy.get('@todos').eq(1).should('contain', TODO_ITEM_THREE)
+      getTodos().eq(1).should('contain', TODO_ITEM_THREE)
     })
 
     // @ts-ignore
     it('should respect the back button', { tags: ['@smoke'] }, function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
+      getTodos().eq(1).find('.toggle').check()
 
       cy.get('.filters').contains('Active').click()
 
       cy.get('.filters').contains('Completed').click()
 
-      cy.get('@todos').should('have.length', 1)
+      getTodos().should('have.length', 1)
       cy.go('back')
-      cy.get('@todos').should('have.length', 2)
+      getTodos().should('have.length', 2)
       cy.go('back')
-      cy.get('@todos').should('have.length', 3)
+      getTodos().should('have.length', 3)
     })
 
     it('should allow me to display completed items', function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
+      getTodos().eq(1).find('.toggle').check()
 
       cy.get('.filters').contains('Completed').click()
 
-      cy.get('@todos').should('have.length', 1)
+      getTodos().should('have.length', 1)
     })
 
     it('should allow me to display all items @smoke', function () {
-      cy.get('@todos').eq(1).find('.toggle').check()
+      getTodos().eq(1).find('.toggle').check()
 
       cy.get('.filters').contains('Active').click()
 
@@ -88,7 +88,7 @@ describe('TodoMVC - React', function () {
 
       cy.get('.filters').contains('All').click()
 
-      cy.get('@todos').should('have.length', 3)
+      getTodos().should('have.length', 3)
     })
 
     it('should highlight the currently applied filter', function () {

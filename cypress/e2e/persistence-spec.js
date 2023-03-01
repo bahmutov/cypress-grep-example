@@ -5,7 +5,7 @@
 // check this file using TypeScript if available
 // @ts-check
 
-import { TODO_ITEM_ONE, TODO_ITEM_TWO } from './utils'
+import { TODO_ITEM_ONE, TODO_ITEM_TWO, getTodos } from './utils'
 
 describe('TodoMVC - React', function () {
   beforeEach(function () {
@@ -35,23 +35,26 @@ describe('TodoMVC - React', function () {
     })
   })
 
+  const getFirstTodo = () => getTodos().eq(0)
+  const getSecondTodo = () => getTodos().eq(1)
+
   context('Persistence', function () {
     it('should persist its data', { tags: '@smoke' }, function () {
       // mimicking TodoMVC tests
       // by writing out this function
       function testState() {
-        cy.get('@firstTodo')
+        getFirstTodo()
           .should('contain', TODO_ITEM_ONE)
           .and('have.class', 'completed')
 
-        cy.get('@secondTodo')
+        getSecondTodo()
           .should('contain', TODO_ITEM_TWO)
           .and('not.have.class', 'completed')
       }
 
-      cy.createTodo(TODO_ITEM_ONE).as('firstTodo')
-      cy.createTodo(TODO_ITEM_TWO).as('secondTodo')
-      cy.get('@firstTodo')
+      cy.createTodo(TODO_ITEM_ONE)
+      cy.createTodo(TODO_ITEM_TWO)
+      getFirstTodo()
         .find('.toggle')
         .check()
         .then(testState)
