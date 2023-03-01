@@ -35,19 +35,6 @@ jobs:
       - name: Print test names 🖨
         run: npm run print-tests
 
-      - name: Run using grep tags 🔎
-        run: |
-          npx cypress-expect run \
-            --env grepTags='@misc' \
-            --expect-exactly expected/tag-misc.json
-
-      - name: Burn tests 🔥
-        run: |
-          npx cypress-expect run \
-            --env burn=3 \
-            --spec cypress/e2e/counter-spec.js \
-            --expect-exactly expected/burn-counter.json
-
   by-title:
     runs-on: ubuntu-20.04
     steps:
@@ -76,3 +63,54 @@ jobs:
           npx cypress-expect run \
             --env grep="update state when items are completed" \
             --expect-exactly expected/one.json
+
+  by-tag:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v3
+
+      - name: Install 📦
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v5
+        with:
+          runTests: false
+
+      - name: Start server 🏁
+        run: npm run start:ci &
+
+      # https://github.com/bahmutov/find-cypress-specs
+      - name: Print test names 🖨
+        run: npm run print-tests
+
+      - name: Run using grep tags 🔎
+        run: |
+          npx cypress-expect run \
+            --env grepTags='@misc' \
+            --expect-exactly expected/tag-misc.json
+
+  burn-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v3
+
+      - name: Install 📦
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v5
+        with:
+          runTests: false
+
+      - name: Start server 🏁
+        run: npm run start:ci &
+
+      # https://github.com/bahmutov/find-cypress-specs
+      - name: Print test names 🖨
+        run: npm run print-tests
+
+      - name: Burn tests 🔥
+        run: |
+          npx cypress-expect run \
+            --env burn=3 \
+            --spec cypress/e2e/counter-spec.js \
+            --expect-exactly expected/burn-counter.json
