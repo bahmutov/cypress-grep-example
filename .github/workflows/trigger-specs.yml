@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       specs:
-        description: Comma-separates spec filenames
+        description: Comma-separates spec filenames without spaces
         required: true
 jobs:
   specs:
