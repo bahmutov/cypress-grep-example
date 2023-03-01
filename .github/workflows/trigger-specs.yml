@@ -11,8 +11,16 @@ jobs:
     steps:
       - name: Print specs 🖨️
         env:
-          EVENT: ${{ toJson(github.event) }}
-        run: echo "$EVENT"
+          SPECS: ${{ toJson(github.event.inputs.specs) }}
+        run: echo "$SPECS"
 
       - name: Checkout 🛎
         uses: actions/checkout@v3
+
+      - name: Run selected specs 🏃
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm run start:ci
+          wait-on: 'http://localhost:8888'
+          spec: ${{ github.event.inputs.specs }}
