@@ -12,9 +12,9 @@ module.exports = defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      // optional: register cypress-grep plugin code
-      // https://github.com/bahmutov/cypress-grep
-      require('cypress-grep/src/plugin')(config)
+      // optional: register cy-grep plugin code
+      // https://github.com/bahmutov/cy-grep
+      equire('@bahmutov/cy-grep/src/plugin')(config)
 
       // make sure to return the config object
       // as it might have been modified by the plugin

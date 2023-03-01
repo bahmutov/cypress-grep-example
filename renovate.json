@@ -10,7 +10,7 @@
   "packageRules": [
     {
       "packagePatterns": ["*"],
-      "excludePackagePatterns": ["cypress", "cypress-grep"],
+      "excludePackagePatterns": ["cypress", "@bahmutov/cy-grep"],
       "enabled": false
     }
   ]

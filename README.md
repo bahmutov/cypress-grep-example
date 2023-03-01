@@ -3,13 +3,13 @@
 [![ci status][ci image]][ci url] [![badges status][badges image]][badges url]
 [![cypress-grep-example](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/4agux9/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/4agux9/runs)
 
-[![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-10.11.0-brightgreen) ![cypress-grep version](https://img.shields.io/badge/cypress--grep-3.0.4-brightgreen)
+[![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-12.7.0-brightgreen) ![@bahmutov/cy-grep version](https://img.shields.io/badge/@bahmutov/cy--grep-1.4.3-brightgreen)
 
 > Example application with grep tags inside the test names
 
-The demo example for the [cypress-grep](https://github.com/bahmutov/cypress-grep) plugin.
+The demo example for the [@bahmutov/cy-grep](https://github.com/bahmutov/cy-grep) plugin.
 
-Watch the video [intro to cypress-grep](https://www.youtube.com/watch?v=HS-Px-Sghd8) which shows how this repository tags tests, uses [cypress-grep](https://github.com/bahmutov/cypress-grep) plugin, and sets up the TypeScript intelligent code completion.
+Watch the video [intro to cypress-grep](https://www.youtube.com/watch?v=HS-Px-Sghd8) which shows how this repository tags tests, uses [@bahmutov/cy-grep](https://github.com/bahmutov/cy-grep) plugin, and sets up the TypeScript intelligent code completion.
 
 You can also watch [How I organize pull request workflows](https://youtu.be/SFW7Ecj5TNE) where I show how the GitHub workflows in [.github/workflows](./.github/workflows) are organized to run the smoke tests first on pull request.
 
