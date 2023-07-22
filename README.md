@@ -3,7 +3,7 @@
 [![ci status][ci image]][ci url] [![badges status][badges image]][badges url]
 [![cypress-grep-example](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/4agux9/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/4agux9/runs)
 
-[![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-12.17.1-brightgreen) ![@bahmutov/cy-grep version](https://img.shields.io/badge/@bahmutov/cy--grep-1.9.16-brightgreen)
+[![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-12.17.2-brightgreen) ![@bahmutov/cy-grep version](https://img.shields.io/badge/@bahmutov/cy--grep-1.9.16-brightgreen)
 
 > Example application with grep tags inside the test names
 
