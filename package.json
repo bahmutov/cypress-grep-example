@@ -25,7 +25,7 @@
     "@bahmutov/cy-grep": "1.9.17",
     "cypress": "13.3.1",
     "cypress-expect": "2.5.3",
-    "find-cypress-specs": "1.36.2",
+    "find-cypress-specs": "1.36.3",
     "prettier": "2.2.1",
     "start-server-and-test": "1.12.1",
     "stop-only": "3.3.1"
