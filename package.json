@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@bahmutov/cy-grep": "1.9.17",
-    "cypress": "13.6.2",
+    "cypress": "13.6.3",
     "cypress-expect": "2.5.3",
     "find-cypress-specs": "1.38.5",
     "prettier": "2.2.1",
