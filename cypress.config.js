@@ -16,15 +16,12 @@ module.exports = defineConfig({
       require('@bahmutov/cy-grep/src/plugin')(config)
 
       console.log('grep tags if any', config.env)
+      // TODO:
       // if the user passed grepTags using CYPRESS_grepTags=...
       // or --env grepTags=... then we can use it
       // to set the baseUrl to something else
       // In this example, if the user passed @smoke tag
       // then set the baseUrl to "https://staging.todomvc.com"
-      if (config.env.grepTags?.includes('@smoke')) {
-        console.log('running smoke tests against staging')
-        config.baseUrl = 'https://staging.todomvc.com'
-      }
 
       // IMPORTANT:
       // make sure to return the config object
