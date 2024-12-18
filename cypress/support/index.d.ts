@@ -1,6 +1,11 @@
 // tip: the cy-grep type definitions in node_modules
 // will load cypress type definitions too
-/// <reference types="@bahmutov/cy-grep" />
+// /// <reference types="@bahmutov/cy-grep" />
+
+/// <reference types="cypress" />
+
+type AllowedTag = '@smoke' | '@misc' | '@new-todo'
+type TestTags = AllowedTag | AllowedTag[]
 
 declare namespace Cypress {
   interface Chainable<Subject> {
@@ -16,5 +21,27 @@ declare namespace Cypress {
      * cy.createTodo('new item')
      */
     createTodo(title: string): Chainable<any>
+  }
+
+  interface SuiteConfigOverrides {
+    /**
+     * Allowed suite test tags
+     */
+    tags?: TestTags
+    /**
+     * Required suite test tags
+     */
+    requiredTags?: TestTags
+  }
+
+  interface TestConfigOverrides {
+    /**
+     * Allowed test tags
+     */
+    tags?: TestTags
+    /**
+     * Required test tags
+     */
+    requiredTags?: TestTags
   }
 }
