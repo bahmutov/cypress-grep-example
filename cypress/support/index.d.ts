@@ -1,9 +1,8 @@
-// tip: the cy-grep type definitions in node_modules
-// will load cypress type definitions too
-// /// <reference types="@bahmutov/cy-grep" />
-
 /// <reference types="cypress" />
 
+/**
+ * The only allowed test tags in this project
+ */
 type AllowedTag = '@smoke' | '@misc' | '@new-todo'
 type TestTags = AllowedTag | AllowedTag[]
 
