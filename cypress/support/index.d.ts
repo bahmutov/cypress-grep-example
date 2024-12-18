@@ -2,6 +2,11 @@
 // will load cypress type definitions too
 /// <reference types="@bahmutov/cy-grep" />
 
+/**
+ * The only allowed test tags in this project
+ */
+type AllowedTag = '@smoke' | '@misc' | '@new-todo'
+
 declare namespace Cypress {
   interface Chainable<Subject> {
     /**
