@@ -6,7 +6,7 @@
  * for example `SMOKE = '@smoke'` so that in the test
  * you use `{ tags: AllowedTag.SMOKE }`
  */
-declare enum AllowedTag {
+declare const enum AllowedTag {
   SMOKE = '@smoke',
   MISC = '@misc',
   NEW_TODO = '@new-todo',
