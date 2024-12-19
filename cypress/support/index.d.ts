@@ -1,6 +1,7 @@
 // tip: the cy-grep type definitions in node_modules
 // will load cypress type definitions too
 /// <reference types="@bahmutov/cy-grep" />
+/// <reference path="./node_modules/@bahmutov/cy-grep/src/tags-are-strings.d.ts" />
 
 /**
  * The only allowed test tags in this project
