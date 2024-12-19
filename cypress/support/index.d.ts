@@ -6,10 +6,10 @@
  * for example `SMOKE = '@smoke'` so that in the test
  * you use `{ tags: AllowedTag.SMOKE }`
  */
-declare const enum AllowedTag {
-  SMOKE = '@smoke',
-  MISC = '@misc',
-  NEW_TODO = '@new-todo',
+declare enum AllowedTag {
+  '@smoke',
+  '@misc',
+  '@new-todo',
 }
 
 declare namespace Cypress {

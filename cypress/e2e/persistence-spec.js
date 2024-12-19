@@ -39,7 +39,7 @@ describe('TodoMVC - React', function () {
   const getSecondTodo = () => getTodos().eq(1)
 
   context('Persistence', function () {
-    it('should persist its data', { tags: AllowedTag.SMOKE }, function () {
+    it('should persist its data', { tags: AllowedTag['@smoke'] }, function () {
       // mimicking TodoMVC tests
       // by writing out this function
       function testState() {

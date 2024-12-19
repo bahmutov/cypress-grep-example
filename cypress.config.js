@@ -1,4 +1,5 @@
 const { defineConfig } = require('cypress')
+const { ValidTestTags } = require('./cypress/support/test-tags')
 
 module.exports = defineConfig({
   fixturesFolder: false,
@@ -11,17 +12,18 @@ module.exports = defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      // optional: register cy-grep plugin code
+      if (config.env.grepTags) {
+        console.log('checking the test tags "%s"', config.env.grepTags)
+        const split = config.env.grepTags
+          .split(',')
+          .map((tag) => tag.trim())
+          .filter((tag) => ValidTestTags.includes(tag))
+        console.log('valid tags "%s"', split.join(','))
+        config.env.grepTags = split.join(',')
+      }
+
       // https://github.com/bahmutov/cy-grep
       require('@bahmutov/cy-grep/src/plugin')(config)
-
-      console.log('grep tags if any', config.env)
-      // TODO:
-      // if the user passed grepTags using CYPRESS_grepTags=...
-      // or --env grepTags=... then we can use it
-      // to set the baseUrl to something else
-      // In this example, if the user passed @smoke tag
-      // then set the baseUrl to "https://staging.todomvc.com"
 
       // IMPORTANT:
       // make sure to return the config object

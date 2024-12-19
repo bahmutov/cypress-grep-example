@@ -51,24 +51,28 @@ describe('TodoMVC - React', function () {
       cy.get('@secondTodo').find('label').should('not.be.visible')
     })
 
-    it('should save edits on blur', { tags: AllowedTag.SMOKE }, function () {
-      cy.get('@todos').eq(1).as('secondTodo').find('label').dblclick()
+    it(
+      'should save edits on blur',
+      { tags: AllowedTag['@smoke'] },
+      function () {
+        cy.get('@todos').eq(1).as('secondTodo').find('label').dblclick()
 
-      cy.get('@secondTodo')
-        .find('.edit')
-        .clear()
-        .type('buy some sausages')
-        // we can just send the blur event directly
-        // to the input instead of having to click
-        // on another button on the page. though you
-        // could do that its just more mental work
-        .blur()
+        cy.get('@secondTodo')
+          .find('.edit')
+          .clear()
+          .type('buy some sausages')
+          // we can just send the blur event directly
+          // to the input instead of having to click
+          // on another button on the page. though you
+          // could do that its just more mental work
+          .blur()
 
-      cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
+        cy.get('@todos').eq(0).should('contain', TODO_ITEM_ONE)
 
-      cy.get('@secondTodo').should('contain', 'buy some sausages')
-      cy.get('@todos').eq(2).should('contain', TODO_ITEM_THREE)
-    })
+        cy.get('@secondTodo').should('contain', 'buy some sausages')
+        cy.get('@todos').eq(2).should('contain', TODO_ITEM_THREE)
+      },
+    )
 
     it('should trim entered text', function () {
       cy.get('@todos').eq(1).as('secondTodo').find('label').dblclick()
