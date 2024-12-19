@@ -2,15 +2,11 @@
 
 /**
  * The only allowed test tags in this project
- * Use an enum to define the allowed tags as strings,
+ * TODO: Use an enum to define the allowed tags as strings,
  * for example `SMOKE = '@smoke'` so that in the test
  * you use `{ tags: AllowedTag.SMOKE }`
  */
-declare enum AllowedTag {
-  SMOKE = '@smoke',
-  MISC = '@misc',
-  NEW_TODO = '@new-todo',
-}
+type AllowedTag = '@smoke' | '@misc' | '@new-todo'
 
 declare namespace Cypress {
   interface Chainable<Subject> {
