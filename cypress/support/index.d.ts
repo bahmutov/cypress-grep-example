@@ -3,7 +3,11 @@
 /**
  * The only allowed test tags in this project
  */
-type AllowedTag = '@smoke' | '@misc' | '@new-todo'
+declare enum AllowedTag {
+  SMOKE = '@smoke',
+  MISC = '@misc',
+  NEW_TODO = '@new-todo',
+}
 
 declare namespace Cypress {
   interface Chainable<Subject> {
