@@ -1,4 +1,5 @@
 const { defineConfig } = require('cypress')
+// valid tags should be an array of strings, like "@smoke", "@new-todo", etc
 const { ValidTestTags } = require('./cypress/support/test-tags')
 
 module.exports = defineConfig({
