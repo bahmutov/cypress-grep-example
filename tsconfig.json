@@ -1,0 +1,15 @@
+{
+  "include": ["cypress/**/*"],
+  "compilerOptions": {
+    "target": "ES2022",
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "types": ["cypress", "@bahmutov/cy-grep"],
+    "lib": ["ES2021", "dom"],
+    "moduleResolution": "node",
+    "module": "es2015"
+  }
+}

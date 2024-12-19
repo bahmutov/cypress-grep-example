@@ -4,7 +4,6 @@
  * The only allowed test tags in this project
  */
 type AllowedTag = '@smoke' | '@misc' | '@new-todo'
-type TestTags = AllowedTag | AllowedTag[]
 
 declare namespace Cypress {
   interface Chainable<Subject> {
@@ -26,21 +25,21 @@ declare namespace Cypress {
     /**
      * Allowed suite test tags
      */
-    tags?: TestTags
+    tags?: AllowedTag | AllowedTag[]
     /**
      * Required suite test tags
      */
-    requiredTags?: TestTags
+    requiredTags?: AllowedTag | AllowedTag[]
   }
 
   interface TestConfigOverrides {
     /**
      * Allowed test tags
      */
-    tags?: TestTags
+    tags?: AllowedTag | AllowedTag[]
     /**
      * Required test tags
      */
-    requiredTags?: TestTags
+    requiredTags?: AllowedTag | AllowedTag[]
   }
 }
