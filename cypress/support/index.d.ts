@@ -2,6 +2,9 @@
 
 /**
  * The only allowed test tags in this project
+ * Use an enum to define the allowed tags as strings,
+ * for example `SMOKE = '@smoke'` so that in the test
+ * you use `{ tags: AllowedTag.SMOKE }`
  */
 declare enum AllowedTag {
   SMOKE = '@smoke',
