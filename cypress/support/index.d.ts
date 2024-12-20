@@ -1,15 +1,5 @@
 /// <reference types="cypress" />
 
-/**
- * The only allowed test tags in this project
- * Use an enum to define the allowed tags as strings,
- */
-declare enum AllowedTag {
-  '@smoke',
-  '@misc',
-  '@new-todo',
-}
-
 declare namespace Cypress {
   interface Chainable<Subject> {
     /**
@@ -26,25 +16,27 @@ declare namespace Cypress {
     createTodo(title: string): Chainable<any>
   }
 
+  type TestTag = import('./test-tags').TestTag
+
   interface SuiteConfigOverrides {
     /**
      * Allowed suite test tags
      */
-    tags?: AllowedTag | AllowedTag[]
+    tags?: TestTag | TestTag[]
     /**
      * Required suite test tags
      */
-    requiredTags?: AllowedTag | AllowedTag[]
+    requiredTags?: TestTag | TestTag[]
   }
 
   interface TestConfigOverrides {
     /**
      * Allowed test tags
      */
-    tags?: AllowedTag | AllowedTag[]
+    tags?: TestTag | TestTag[]
     /**
      * Required test tags
      */
-    requiredTags?: AllowedTag | AllowedTag[]
+    requiredTags?: TestTag | TestTag[]
   }
 }

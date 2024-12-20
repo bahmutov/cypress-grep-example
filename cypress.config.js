@@ -1,7 +1,7 @@
 const { defineConfig } = require('cypress')
-// import th array "ValidTestTags" from 'cypress/support/test-tags'
+// import th array "TestTags" from 'cypress/support/test-tags'
 // valid tags should be an array of strings, like "@smoke", "@new-todo", etc
-const { ValidTestTags } = require('./cypress/support/test-tags')
+const { TestTags } = require('./cypress/support/test-tags')
 
 module.exports = defineConfig({
   fixturesFolder: false,
@@ -21,7 +21,7 @@ module.exports = defineConfig({
         const split = config.env.grepTags
           .split(',')
           .map((tag) => tag.trim())
-          .filter((tag) => ValidTestTags.includes(tag))
+          .filter((tag) => TestTags.includes(tag))
         // print the remaining validated tags
         console.log('valid tags "%s"', split.join(','))
         // and set the environment variable "config.env.grepTags"
