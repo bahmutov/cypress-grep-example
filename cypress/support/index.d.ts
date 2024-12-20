@@ -16,6 +16,7 @@ declare namespace Cypress {
     createTodo(title: string): Chainable<any>
   }
 
+  // get the type of the string array with the test tags
   type TestTag = import('./test-tags').TestTag
 
   interface SuiteConfigOverrides {
