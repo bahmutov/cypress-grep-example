@@ -17,7 +17,7 @@ module.exports = defineConfig({
       if (config.env.grepTags) {
         console.log('checking the test tags "%s"', config.env.grepTags)
         // split the tags by comma, trim each tag
-        // and filter out invalid tags using the "ValidTestTags" array
+        // and filter out invalid tags using the "TestTags" array
         const split = config.env.grepTags
           .split(',')
           .map((tag) => tag.trim())
