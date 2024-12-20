@@ -10,6 +10,7 @@
     "types": ["cypress", "@bahmutov/cy-grep"],
     "lib": ["ES2021", "dom"],
     "moduleResolution": "node",
-    "module": "es2015"
+    "module": "ES2022",
+    "isolatedModules": false
   }
 }

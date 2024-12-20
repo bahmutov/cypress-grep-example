@@ -56,20 +56,23 @@ describe('TodoMVC - React', function () {
       getTodos().eq(1).should('contain', TODO_ITEM_THREE)
     })
 
-    // @ts-ignore
-    it('should respect the back button', { tags: ['@smoke'] }, function () {
-      getTodos().eq(1).find('.toggle').check()
+    it(
+      'should respect the back button',
+      { tags: AllowedTag.smoke },
+      function () {
+        getTodos().eq(1).find('.toggle').check()
 
-      cy.get('.filters').contains('Active').click()
+        cy.get('.filters').contains('Active').click()
 
-      cy.get('.filters').contains('Completed').click()
+        cy.get('.filters').contains('Completed').click()
 
-      getTodos().should('have.length', 1)
-      cy.go('back')
-      getTodos().should('have.length', 2)
-      cy.go('back')
-      getTodos().should('have.length', 3)
-    })
+        getTodos().should('have.length', 1)
+        cy.go('back')
+        getTodos().should('have.length', 2)
+        cy.go('back')
+        getTodos().should('have.length', 3)
+      },
+    )
 
     it('should allow me to display completed items', function () {
       getTodos().eq(1).find('.toggle').check()

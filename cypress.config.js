@@ -1,7 +1,6 @@
 const { defineConfig } = require('cypress')
 // import th array "ValidTestTags" from 'cypress/support/test-tags'
 // valid tags should be an array of strings, like "@smoke", "@new-todo", etc
-const { ValidTestTags } = require('./cypress/support/test-tags')
 
 module.exports = defineConfig({
   fixturesFolder: false,
@@ -18,15 +17,11 @@ module.exports = defineConfig({
         console.log('checking the test tags "%s"', config.env.grepTags)
         // split the tags by comma, trim each tag
         // and filter out invalid tags using the "ValidTestTags" array
-        const split = config.env.grepTags
-          .split(',')
-          .map((tag) => tag.trim())
-          .filter((tag) => ValidTestTags.includes(tag))
+        //
         // print the remaining validated tags
-        console.log('valid tags "%s"', split.join(','))
+        //
         // and set the environment variable "config.env.grepTags"
         // to the validated tags string (comma separated)
-        config.env.grepTags = split.join(',')
       }
 
       // https://github.com/bahmutov/cy-grep
@@ -39,6 +34,6 @@ module.exports = defineConfig({
     },
     // default base url
     baseUrl: 'http://localhost:8888',
-    specPattern: 'cypress/e2e/**/*spec.js',
+    specPattern: 'cypress/e2e/**/*spec.(js|ts)',
   },
 })

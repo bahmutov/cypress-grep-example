@@ -4,10 +4,10 @@
  * The only allowed test tags in this project
  * Use an enum to define the allowed tags as strings,
  */
-declare enum AllowedTag {
-  '@smoke',
-  '@misc',
-  '@new-todo',
+declare const enum AllowedTag {
+  'smoke' = '@smoke',
+  'misc' = '@misc',
+  'new-todo' = '@new-todo',
 }
 
 declare namespace Cypress {
