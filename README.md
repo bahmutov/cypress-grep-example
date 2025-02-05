@@ -105,6 +105,12 @@ $ npx cypress-cli-select run
 
 📺 watch the video [Intro To The cypress-cli-select Plugin](https://youtu.be/lnehIEzJhlI).
 
+## Grep boxes
+
+This project includes [cypress-plugin-grep-boxes](https://github.com/dennisbergevin/cypress-plugin-grep-boxes) plugin to allow filtering the tests to run in the `cypress open` mode
+
+![Cypress grep boxes plugin](./images/grep-boxes.png)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021

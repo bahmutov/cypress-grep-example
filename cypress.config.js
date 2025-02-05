@@ -4,6 +4,7 @@ module.exports = defineConfig({
   fixturesFolder: false,
   projectId: '4agux9',
   video: false,
+  defaultBrowser: 'electron',
   env: {
     grepFilterSpecs: true,
     grepOmitFiltered: true,
