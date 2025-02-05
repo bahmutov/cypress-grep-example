@@ -88,6 +88,21 @@ See the pull request [#79](https://github.com/bahmutov/cypress-grep-example/pull
 
 To see the test names and their tags, run `npm run print-tests` which uses [find-cypress-specs](https://github.com/bahmutov/find-cypress-specs).
 
+## Select tests to run from the command line
+
+You can use the included [dennisbergevin/cypress-cli-select](https://github.com/dennisbergevin/cypress-cli-select) to manually select the tests / tags / specs to run
+
+```
+$ npx cypress-cli-select run
+
+ Cypress-cli-select
+
+? Choose to filter by specs, specific test titles or tags:
+  (Press <tab> to select/deselect, <ctrl> + <a> to toggle all, <enter> to proceed)
+>[ ] Specs
+ [ ] Test titles or tags (requires cy-grep)
+```
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
