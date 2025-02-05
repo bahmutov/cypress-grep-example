@@ -103,6 +103,8 @@ $ npx cypress-cli-select run
  [ ] Test titles or tags (requires cy-grep)
 ```
 
+📺 watch the video [Intro To The cypress-cli-select Plugin](https://youtu.be/lnehIEzJhlI).
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
