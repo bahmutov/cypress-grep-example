@@ -111,6 +111,8 @@ This project includes [cypress-plugin-grep-boxes](https://github.com/dennisberge
 
 ![Cypress grep boxes plugin](./images/grep-boxes.png)
 
+📺 watch the video [cypress-plugin-grep-boxes Plugin Demo](https://youtu.be/u66poGcpyyQ)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
