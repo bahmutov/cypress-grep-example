@@ -24,7 +24,7 @@
   "devDependencies": {
     "@bahmutov/cy-grep": "2.0.14",
     "cypress": "14.0.3",
-    "cypress-cli-select": "1.0.0",
+    "cypress-cli-select": "1.0.1",
     "cypress-expect": "2.5.3",
     "cypress-plugin-grep-boxes": "1.0.4",
     "find-cypress-specs": "1.47.7",
