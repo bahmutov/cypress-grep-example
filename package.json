@@ -26,7 +26,7 @@
     "cypress": "14.3.0",
     "cypress-cli-select": "1.1.1",
     "cypress-expect": "2.5.3",
-    "cypress-plugin-grep-boxes": "1.0.5",
+    "cypress-plugin-grep-boxes": "1.1.0",
     "find-cypress-specs": "1.54.0",
     "prettier": "2.2.1",
     "start-server-and-test": "1.12.1",
