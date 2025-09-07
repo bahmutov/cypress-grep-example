@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   all-tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3
@@ -36,7 +36,7 @@ jobs:
         run: npm run print-tests
 
   by-title:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3
@@ -65,7 +65,7 @@ jobs:
             --expect-exactly expected/one.json
 
   by-tag:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3
@@ -93,7 +93,7 @@ jobs:
             --expect-exactly expected/tag-misc.json
 
   burn-tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3
