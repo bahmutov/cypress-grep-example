@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: All E2E tests 🧪
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           start: npm run start:ci
           # quote the url to be safe against YML parsing surprises
@@ -39,11 +39,11 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Install 📦
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           runTests: false
 
@@ -68,11 +68,11 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Install 📦
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           runTests: false
 
@@ -96,11 +96,11 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Install 📦
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           runTests: false
 
