@@ -22,7 +22,7 @@
     "todomvc-common": "cypress-io/todomvc-common#88b7c6359ad4a5097312d8b2a21dd539ce9f4446"
   },
   "devDependencies": {
-    "@bahmutov/cy-grep": "2.0.37",
+    "@bahmutov/cy-grep": "2.1.0",
     "cypress": "15.5.0",
     "cypress-cli-select": "1.1.5",
     "cypress-expect": "2.5.3",
