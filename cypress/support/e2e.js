@@ -7,9 +7,4 @@ require('./commands')
 require('@bahmutov/cy-grep')()
 
 // https://github.com/dennisbergevin/cypress-plugin-grep-boxes
-const {
-  greppedTestToggle,
-  addGrepButtons,
-} = require('cypress-plugin-grep-boxes')
-greppedTestToggle()
-addGrepButtons()
+require('cypress-plugin-grep-boxes')
