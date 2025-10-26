@@ -113,6 +113,12 @@ This project includes [cypress-plugin-grep-boxes](https://github.com/dennisberge
 
 📺 watch the video [cypress-plugin-grep-boxes Plugin Demo](https://youtu.be/u66poGcpyyQ)
 
+## Filter
+
+This project includes [cypress-plugin-filter-runnables](https://github.com/dennisbergevin/cypress-plugin-filter-runnables) that lets you filter all tests by part of the title.
+
+![Filter tests with the word "mark" in the title](./images/mark.png)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
