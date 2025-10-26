@@ -8,3 +8,6 @@ require('@bahmutov/cy-grep')()
 
 // https://github.com/dennisbergevin/cypress-plugin-grep-boxes
 require('cypress-plugin-grep-boxes')
+
+// https://github.com/dennisbergevin/cypress-plugin-filter-runnables
+require('cypress-plugin-filter-runnables')

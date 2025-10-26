@@ -10,7 +10,12 @@
   "packageRules": [
     {
       "packagePatterns": ["*"],
-      "excludePackagePatterns": ["cypress", "@bahmutov/cy-grep"],
+      "excludePackagePatterns": [
+        "cypress",
+        "@bahmutov/cy-grep",
+        "cypress-plugin-grep-boxes",
+        "cypress-plugin-filter-runnables"
+      ],
       "enabled": false
     }
   ]
