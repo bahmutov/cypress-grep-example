@@ -119,6 +119,8 @@ This project includes [cypress-plugin-filter-runnables](https://github.com/denni
 
 ![Filter tests with the word "mark" in the title](./images/mark.png)
 
+You can see my discussion of [cypress-plugin-grep-boxes](https://github.com/dennisbergevin/cypress-plugin-grep-boxes) and [cypress-plugin-filter-runnables](https://github.com/dennisbergevin/cypress-plugin-filter-runnables) plugins with their author Dennis Bergevin in [this video](https://youtu.be/JK954Xi9q5g).
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
