@@ -26,7 +26,7 @@
     "cypress": "15.12.0",
     "cypress-cli-select": "1.2.0",
     "cypress-expect": "2.5.3",
-    "cypress-plugin-filter-runnables": "2.1.0",
+    "cypress-plugin-filter-runnables": "2.1.1",
     "cypress-plugin-grep-boxes": "3.0.1",
     "find-cypress-specs": "1.54.10",
     "prettier": "2.2.1",
