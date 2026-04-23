@@ -26,7 +26,7 @@ jobs:
 
   specs:
     # https://github.com/bahmutov/cypress-workflows
-    uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
+    uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v2.3.3
     with:
       n: ${{ fromJson(github.event.inputs.machines) }}
       spec: '${{ github.event.inputs.specs }}'
