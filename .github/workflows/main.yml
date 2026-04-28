@@ -12,7 +12,7 @@ jobs:
 
       - name: All E2E tests 🧪
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v7.1.9
+        uses: cypress-io/github-action@v7.1.10
         with:
           start: npm run start:ci
           # quote the url to be safe against YML parsing surprises
@@ -43,7 +43,7 @@ jobs:
 
       - name: Install 📦
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v7.1.9
+        uses: cypress-io/github-action@v7.1.10
         with:
           runTests: false
 
@@ -72,7 +72,7 @@ jobs:
 
       - name: Install 📦
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v7.1.9
+        uses: cypress-io/github-action@v7.1.10
         with:
           runTests: false
 
@@ -100,7 +100,7 @@ jobs:
 
       - name: Install 📦
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v7.1.9
+        uses: cypress-io/github-action@v7.1.10
         with:
           runTests: false
 
